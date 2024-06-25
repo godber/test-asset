@@ -1,0 +1,40 @@
+{
+  "name": "test-asset",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:godber/test-asset.git",
+  "author": "Austin Godber <godber@uberhip.com>",
+  "license": "Apache-2.0",
+  "workspaces": [
+    "packages/*",
+    "asset"
+  ],
+  "private": true,
+  "scripts": {
+    "asset:build": "yarn && yarn run build",
+    "asset:post-build": "./scripts/copy-links.sh",
+    "build": "tsc --build",
+    "build:watch": "tsc --build --watch",
+    "bump": "ts-scripts bump",
+    "bump-asset": "ts-scripts bump-asset",
+    "lint": "eslint --ignore-path .gitignore --ext .js,.ts .",
+    "lint:fix": "yarn lint --fix",
+    "publish:changed": "./scripts/publish.sh",
+    "setup": "yarn && yarn build --force",
+    "test": "jest",
+    "test:all": "yarn workspaces run test",
+    "test:debug": "env DEBUG=\"${DEBUG:-*teraslice*}\" jest --detectOpenHandles --coverage=false --runInBand",
+    "test:watch": "jest --coverage=false --notify --watch --onlyChanged"
+  },
+  "devDependencies": {
+    "@terascope/job-components": "^0.75.1",
+    "@types/node": "^18.14.2",
+    "typescript": "~5.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "yarn": ">=1.22.19"
+  },
+  "terascope": {
+  }
+}

@@ -1,0 +1,32 @@
+{
+    "name": "test-asset",
+    "displayName": "Test Asset",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Test Teraslice Asset",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/godber/test-asset.git"
+    },
+    "license": "MIT",
+    "workspaces": {
+        "nohoist": [
+            "**"
+        ]
+    },
+    "scripts": {
+        "build": "tsc --project tsconfig.json",
+        "build:watch": "yarn build --watch",
+        "test": "yarn --cwd ../ test"
+    },
+    "dependencies": {
+        "@terascope/job-components": "^0.75.1",
+        "@types/node": "^18.14.2",
+        "typescript": "~5.2.2"
+    },
+    "engines": {
+        "node": ">=18.0.0",
+        "yarn": ">=1.22.19"
+    },
+    "terascope": {}
+}
