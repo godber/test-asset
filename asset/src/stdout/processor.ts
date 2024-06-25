@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
 import { BatchProcessor } from '@terascope/job-components';
-import { StdoutConfig } from './interfaces.js';
+import { StdoutConfig } from './interfaces';
 
 export default class Stdout extends BatchProcessor<StdoutConfig> {
     async onBatch(data: any) {
